@@ -19,6 +19,10 @@
 
     <body>
 
+        <!-- Modals -->
+        @include('tasks.modals.create')
+
+
         @include('layouts.partials._navigation')
 
         @include('layouts.partials._header')
@@ -26,6 +30,8 @@
         @yield('content')
 
         @include('layouts.partials._footer')
+
+
 
     </body>
 </html>
