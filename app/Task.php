@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Task extends Model
 {
@@ -84,6 +85,13 @@ class Task extends Model
 
     	$bgcolor = $bgcolors[$this->priority];
     	return $bgcolor;
+
+    }
+
+    public function howLongAgo() {
+
+    	$dt = Carbon::createFromTimeStamp(strtotime($this->created_at));
+    	return $dt->diffForHumans();
 
     }
 

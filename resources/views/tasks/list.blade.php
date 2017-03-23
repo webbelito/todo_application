@@ -12,6 +12,9 @@
 
 					@foreach ($tasks as $task)
 
+
+						@if(!$task->completed)
+
 				  		<div class="col-sm-6 margin-bottom-10">
 
 							<div class="card text-center 5">					
@@ -26,24 +29,24 @@
 									<p class="card-text">{{ $task->description }}</p>
 
 									<div class="card-footer text-muted margin-bottom-10">
-										2 days ago, not functioning automatically now
+										{{ $task->howLongAgo() }}
 									</div>
 
-									<form action="/task/{{ $task->id }}" method="POST">
+									<form action="/tasks/{{ $task->id }}" method="POST">
 										{{ csrf_field() }}
 										{{ method_field('DELETE') }}
 
-										<buton class="btn btn-md btn-danger">Delete</buton>
+										<button class="btn btn-md btn-danger" type="submit">Delete</button>
 
 									</form>
 
-									
-									<buton class="btn btn-md btn-success">Complete</buton>
 
 								</div>
 
 							</div>
 						</div>
+
+						@endif
 
 					@endforeach
 

@@ -23,12 +23,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
-        // Inject Task instance
-        $router->model('task', 'App\Task');
-
         parent::boot();
+
+        Route::model('task', 'App\Task');
+
     }
 
     /**
