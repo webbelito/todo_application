@@ -15,6 +15,12 @@
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet" type="text/css">
 
+        <!-- SweetAlert -->
+        <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
+
+        <!-- Font Awesome -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     </head>
 
     <body>

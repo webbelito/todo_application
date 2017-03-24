@@ -32,14 +32,35 @@
 										{{ $task->howLongAgo() }}
 									</div>
 
-									<form action="/tasks/{{ $task->id }}" method="POST">
-										{{ csrf_field() }}
-										{{ method_field('DELETE') }}
+									<div class="row">
 
-										<button class="btn btn-md btn-danger" type="submit">Delete</button>
+										<div class="col-sm-3">
 
-									</form>
+											<form action="/tasks/{{ $task->id }}" method="POST">
 
+												{{ csrf_field() }}
+												{{ method_field('DELETE') }}
+
+												<button class="btn btn-md btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+											</form>
+
+										</div>
+
+										<div class="col-sm-3">
+
+											<form action="/tasks/{{ $task->id }}" method="POST">
+
+												{{ csrf_field() }}
+												{{ method_field('PATCH') }}
+
+												<button class="btn btn-md btn-success" type="submit" name="completed" value="1"><i class="fa fa-check" aria-hidden="true"></i></button>
+
+											</form>
+
+										</div>
+
+									</div>
 
 								</div>
 

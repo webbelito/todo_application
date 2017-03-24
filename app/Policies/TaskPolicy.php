@@ -17,6 +17,30 @@ class TaskPolicy
      * @param  Task  $task
      * @return bool
      */
+    public function update(User $user, Task $task)
+    {
+        return $user->id === $task->user_id;
+    }
+
+    /**
+     * Determine if the given user can update the given task.
+     *
+     * @param  User  $user
+     * @param  Task  $task
+     * @return bool
+     */
+    public function complete(User $user, Task $task)
+    {
+        return $user->id === $task->user_id;
+    }
+
+    /**
+     * Determine if the given user can update the given task.
+     *
+     * @param  User  $user
+     * @param  Task  $task
+     * @return bool
+     */
     public function destroy(User $user, Task $task)
     {
         return $user->id === $task->user_id;

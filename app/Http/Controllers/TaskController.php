@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use App\Repositories\TaskRepository;
+
+use Alert;
+
 use Illuminate\Http\Request;
+
 
 class TaskController extends Controller
 {
@@ -78,6 +82,10 @@ class TaskController extends Controller
             'priority' => $request->priority
         ]);
 
+        notify()->flash("$request->title, successfully created", 'success', [
+                'timer' => 4000,
+            ]);
+
         return redirect('/tasks');
 
     }
@@ -105,19 +113,57 @@ class TaskController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified task in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
-        //
+
+        $this->authorize('update', $task);
+
+        // Validation
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'priority' => 'required|max:5',
+        ]);
+
+        // Update
+        $task->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'priority' => $request->priority,
+                'completed' => $request->completed,
+        ]);
+
+        return redirect ('/tasks');
+    }
+
+    public function complete(Request $request, Task $task)
+    {
+        $this->authorize('update', $task);
+
+        $this->validate($request, [
+            'completed' => 'required',
+        ]);
+
+        $task->update([
+            'completed' => $request->completed,
+        ]);
+
+         notify()->flash("$task->title, is now completed", 'success', [
+            'timer' => 3000,
+        ]);  
+        
+        return redirect('/tasks'); 
+
     }
 
     /**
-     * Destroy the given task.
+     * Destroy the given task
      *
      * @param Request $request
      * @param Task $task 
@@ -129,6 +175,10 @@ class TaskController extends Controller
         $this->authorize('destroy', $task);
 
         $task->delete();
+
+        notify()->flash("$task->title, is now deleted", 'success', [
+                'timer' => 3000,
+            ]);
 
         return redirect('/tasks');
     }
