@@ -34,7 +34,7 @@
 
 									<div class="row">
 
-										<div class="col-sm-3">
+										<div class="col-sm-6 col-md-2">
 
 											<form action="/tasks/{{ $task->id }}" method="POST">
 
@@ -47,7 +47,7 @@
 
 										</div>
 
-										<div class="col-sm-3">
+										<div class="col-sm-6 col-md-2 offset-md-8">
 
 											<form action="/tasks/{{ $task->id }}" method="POST">
 
@@ -65,6 +65,7 @@
 								</div>
 
 							</div>
+
 						</div>
 
 						@endif
