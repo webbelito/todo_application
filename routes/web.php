@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('tasks/');
 });
+
+
+Auth::routes();
+
+Route::resource('tasks', 'TaskController');
+Route::patch('tasks/{task}', 'TaskController@complete');
+
+Route::get('/home', 'HomeController@index');

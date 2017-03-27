@@ -177,6 +177,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        * Sweet Alert
+        */
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+
+        /*
+        * Notify
+        */
+        Codecourse\Notify\NotifyServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +235,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
 
     ],
 
