@@ -12,13 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('tasks/');
 });
 
-
-Route::get('/test', function () {
-    return view('test');
-});
 
 Auth::routes();
 

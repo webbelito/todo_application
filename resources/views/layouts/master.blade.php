@@ -27,6 +27,8 @@
 
         <!-- Modals -->
         @include('tasks.modals.create')
+        @include('tasks.modals.delete')
+
 
 
         @include('layouts.partials._navigation')

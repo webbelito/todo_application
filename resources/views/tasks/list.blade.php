@@ -36,14 +36,9 @@
 
 										<div class="col-sm-6 col-md-2">
 
-											<form action="/tasks/{{ $task->id }}" method="POST">
-
-												{{ csrf_field() }}
-												{{ method_field('DELETE') }}
-
-												<button class="btn btn-md btn-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-											</form>
+											<button class="btn btn-md btn-danger" data-toggle="modal" data-target="#deleteTaskModal">
+												<i class="fa fa-trash" aria-hidden="true"></i>
+											</button>
 
 										</div>
 

@@ -13,19 +13,22 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <link href="css/app.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
 
         <!-- SweetAlert -->
-        <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/sweetalert.css') }}" rel="stylesheet" type="text/css">
 
         <!-- Font Awesome -->
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     </head>
 
     <body>
 
         @yield('content')
+
+        @include('layouts.partials._footer')
 
     </body>
 </html>
